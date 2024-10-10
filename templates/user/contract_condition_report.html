@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <meta charset="UTF-8">
+    <title>Contract Condition Report</title>
+</head>
+<body class="condition_report_body">
+    <div class="contract_condition_report_title">
+    <img src="{{ contract.car.car_picture.url }}" alt="Car Image" class="car_condition_picture">
+    <h1>Contract Condition Report for {{ contract }}</h1>
+    
+    </div>
+                                        
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <h1>Exterior Pictures</h1>
+        <div class="exterior_form_cont">
+            <label class="custom-file-upload">
+                <input id="car_exterior_image1" class="file_input" name="car_exterior_image1" type="file"/>
+                Exterior Picture 1
+            </label>
+            <label class="custom-file-upload">
+                <input id="car_exterior_image2" class="file_input" name="car_exterior_image2" type="file"/>
+                Exterior Picture 2
+            </label>
+            <label class="custom-file-upload">
+                <input id="car_exterior_image3" class="file_input" name="car_exterior_image3" type="file"/>
+                Exterior Picture 3
+            </label>
+            <label class="custom-file-upload">
+                <input id="car_exterior_image4" class="file_input" name="car_exterior_image4" type="file"/>
+                Exterior Picture 4
+            </label>
+            <label class="custom-file-upload">
+                <input id="car_exterior_image5" class="file_input" name="car_exterior_image5" type="file"/>
+                Exterior Picture 5
+            </label>
+        </div>
+
+        <div class="exterior_preview_images">
+            <img src="" id="exterior-preview1">
+            <img src="" id="exterior-preview2">
+            <img src="" id="exterior-preview3">
+            <img src="" id="exterior-preview4">
+            <img src="" id="exterior-preview5">
+        </div>
+
+        <h1>Interior Pictures</h1>
+        <div class="interior_form_cont">
+            <label class="custom-file-upload">
+                <input id="car_interior_image1" class="file_input" name="car_interior_image1" type="file"/>
+                Interior Picture 1
+            </label>
+            <label class="custom-file-upload">
+                <input id="car_interior_image2" class="file_input" name="car_interior_image2" type="file"/>
+                Interior Picture 2
+            </label>
+            <label class="custom-file-upload">
+                <input id="car_interior_image3" class="file_input" name="car_interior_image3" type="file"/>
+                Interior Picture 3
+            </label>
+            <label class="custom-file-upload">
+                <input id="car_interior_image4" class="file_input" name="car_interior_image4" type="file"/>
+                Interior Picture 4
+            </label>
+            <label class="custom-file-upload">
+                <input id="car_interior_image5" class="file_input" name="car_interior_image5" type="file"/>
+                Interior Picture 5
+            </label>
+        </div>
+
+        <div class="interior_preview_images">
+            <img src="" id="interior-preview1">
+            <img src="" id="interior-preview2">
+            <img src="" id="interior-preview3">
+            <img src="" id="interior-preview4">
+            <img src="" id="interior-preview5">
+        </div>
+        
+        <input class="condition_submit_button" type="submit" value="Submit Pictures">
+    </form>
+
+
+    <script>
+        function setupPreview(inputId, previewId) {
+            const input = document.getElementById(inputId);
+            const preview = document.getElementById(previewId);
+    
+            const previewPhoto = () => {
+                const file = input.files;
+                if (file) {
+                    const fileReader = new FileReader();
+                    fileReader.onload = function (event) {
+                        preview.setAttribute('src', event.target.result);
+                    }
+                    fileReader.readAsDataURL(file[0]);
+                }
+            }
+            input.addEventListener("change", previewPhoto);
+        }
+    
+        // Setup for Exterior Pictures
+        setupPreview('car_exterior_image1', 'exterior-preview1');
+        setupPreview('car_exterior_image2', 'exterior-preview2');
+        setupPreview('car_exterior_image3', 'exterior-preview3');
+        setupPreview('car_exterior_image4', 'exterior-preview4');
+        setupPreview('car_exterior_image5', 'exterior-preview5');
+    
+        // Setup for Interior Pictures
+        setupPreview('car_interior_image1', 'interior-preview1');
+        setupPreview('car_interior_image2', 'interior-preview2');
+        setupPreview('car_interior_image3', 'interior-preview3');
+        setupPreview('car_interior_image4', 'interior-preview4');
+        setupPreview('car_interior_image5', 'interior-preview5');
+        
+    </script>
+</body>
+
+<script  src="{% static 'js/script.js' %}"></script>
+</html>

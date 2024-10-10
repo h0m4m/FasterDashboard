@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <title>User Detail</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    
+
+  </head>
+  <body class="user_detail_body">
+    <!-- Add a container for blur effect -->
+<div class="blur-container">
+</div>
+
+    <!-- user_details.html -->
+    <div class="user_profile_container">
+    {% if driver.profile_picture %}
+        <!-- Display user's profile picture -->
+        <img class="user_profile_picture" src="{{ driver.profile_picture.url }}" alt="Profile Picture" width="150">
+    {% else %}
+        <p>No profile picture available</p>
+    {% endif %}
+
+    <h1 class="profile_full_name"> Welcome, {{ driver }}</h1>
+    </div>
+    {% if active_contracts %}
+            {% for contract in active_contracts %}
+            <div class="driver_contract_container whitespace">
+                <div> {{ contract.id }} </div>
+                <div> {{ contract.car.car_name }} </div>
+                <div> ({{ contract.pickup_date }})</div>
+                <div class="condition_report_link"><a href="{% url 'contract_condition_report' contract.id %}?driver_id={{ driver.id }}">View Condition Report</a> </div>
+                {% if contract.car_exterior_image1 and contract.car_exterior_image2 and contract.car_exterior_image3 and contract.car_exterior_image4 and contract.car_exterior_image5 and contract.car_interior_image1 and contract.car_interior_image2 and contract.car_interior_image3 and contract.car_interior_image4 and contract.car_interior_image5 %}
+                <i class="fa-solid fa-check checkmark"></i>
+                {% endif %}
+            </div>
+            {% endfor %}
+    {% else %}
+        <p>No active contracts found.</p>
+    {% endif %} 
+
+</body>
+<script defer src="{% static 'js/script.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+</html>

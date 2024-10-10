@@ -1,0 +1,732 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+
+a{
+    list-style: none;
+    color: #0d1117;
+    text-decoration: none;
+    
+}
+
+*{
+    font-family: 'Inter', sans-serif;
+}
+
+
+/* CSS for the blur effect and preventing scrolling */
+.blur-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Adjust the opacity as needed */
+    backdrop-filter: blur(4px); /* Apply the blur effect */
+    z-index: 100; /* Ensure the container is above other content */
+    display: none; /* Initially hidden */
+    overflow-y: auto; /* Enable scrolling */
+}
+
+.blur-container.show-blur {
+    display: block; /* Show when needed */
+}
+
+  
+
+.user_login_form{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    gap: 30px;
+    align-items: center;
+}
+
+.user_body{
+    background-color: aliceblue;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: white;
+    font-size: 30px;
+    font-weight: 600;
+    color: #0d1117;
+}
+
+.user_form_input {
+    border: 2px solid transparent;
+    width: 20em;
+    height: 2.5em;
+    padding-left: 0.8em;
+    outline: none;
+    overflow: hidden;
+    background-color: #bebebe3f;
+    border-radius: 10px;
+    transition: all 0.5s;
+  }
+  
+.user_form_input:hover,
+.user_form_input:focus {
+    border: 2px solid #4A9DEC;
+    box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+    background-color: white;
+}
+  
+.user_form_submit, .condition_submit_button {
+    padding: 12.5px 30px;
+    width: 15em;
+    border: 0;
+    border-radius: 10px;
+    background-color: #2ba8fb;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+.user_form_submit:hover, .condition_submit_button:hover {
+    background-color: #6fc5ff;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+}
+
+.user_form_submit:active, .condition_submit_button:active {
+    background-color: #3d94cf;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+}
+
+.user_detail_body{
+    background-color: rgb(239, 239, 239);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:#0d1117  ;
+}
+
+.user_profile_container{
+    margin-top: 60px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.user_profile_picture{
+    border-radius: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    filter: drop-shadow(0 0 0.99rem rgb(174, 174, 174));
+}
+
+.active_contract_message{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.contract_container{
+    background-color: white;
+    width: calc(100% - 60px);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    margin-bottom: 20px;
+}
+
+.all_contracts_container{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: calc(100% - 20px);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.status_text{
+    font-size: 25px;
+    font-weight: 600;
+    
+}
+
+.contact_info{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.section_cont{
+    width: 100%;
+    height: auto;
+    background-color: #EFEFEF;
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.section_button_cont{
+    width: 100%;
+    
+}
+
+.section_button{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    padding: 25px 35px 25px 35px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.section_button_text{
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.section_button_chevron{
+    font-size: 25px;
+}
+
+.section_content_cont{
+    display: none;
+    flex-direction: column;
+    gap: 35px;
+    padding:  25px 35px;
+}
+
+.section_content_cont.show-content {
+    display: flex;
+    /* Additional styles to show the content */
+}
+
+.whitespace{
+    background-color: white;
+    width: calc(50% - 40px);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.063), 0 8px 16px rgba(0, 0, 0, 0.068);
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 600;
+    align-items: center;
+}
+
+.view_contract{
+    cursor: pointer;
+}
+
+.view_contract_text{
+    font-size: 20px;
+}
+
+.linkicon{
+    font-size: 20px;
+}
+
+.date_and_time_text{
+    margin-left: 5px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.date_and_time_content_container{
+    margin-top: 15px;
+}
+
+.tips_text{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.car_info_text{
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.condition_report_title{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.interior_and_exterior_text{
+    margin-left: 5px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.interior_and_exterior_content_container{
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.interior_and_exterior_content{
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.fineslinkicon{
+    font-size: 25px;
+}
+
+.car_stock_picture{
+    max-width: 350px;
+    border-radius: 16px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.external_pictures_splide{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 300px;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 200;
+}
+
+.fines-button{
+    width: calc(100% - 70px);
+}
+
+.external_pictures_splide.show-content {
+    display: block;
+    
+}
+
+.interior_pictures_splide{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 300px;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 200;
+}
+
+.interior_pictures_splide.show-content {
+    display: block;
+}
+
+
+.splide__slide {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exterior_splide_image{
+    min-height: 250px;
+}
+
+.interior_splide_image{
+    min-height: 250px;
+}
+
+
+.splide_closing_button{
+    background-color: #CCCCCC;
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    color: #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 200;
+}   
+
+.contract_fines_title{
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.fines_total_and_amount{
+    margin-top: 30px;
+    background-color: #ffffff;
+    display: flex;
+    font-weight: 600;
+    font-size: 20px;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 30%;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+
+}
+
+.seperator_line {
+    border-left: 1px solid #9c9c9c; /* Adjust thickness and color */
+    margin: 0 10px; /* Adjust left and right margin as needed */
+    width: 10px;
+
+}
+
+#finesTable_wrapper{
+    margin-top: 50px;
+    width: 80%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    
+}
+
+#finesTable{
+    border: none;
+}
+
+#finesTable td {
+    text-align: center;
+    vertical-align: middle; 
+}
+
+
+#finesTable_paginate span a{
+    background: white;
+    border-radius: 3px;
+    border-width: 0px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+}
+
+.fine_document_view{
+    background-color: #efefef;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.fine_document_button{
+    height: 50px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.deposit_release_cont{
+    display: flex;
+    flex-direction: column;
+}
+.deposit_status_text, .deposit_release_date{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.deposit_release_note{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.user_login_redirect_button{
+    margin-top: 20px;
+    background-color: #efefef;
+    padding: 15px;
+    border-radius: 14px;
+}
+
+.condition_report_body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.contract_condition_report_title{
+    margin-top: 50px;
+    width: 50%;
+}
+
+.car_condition_picture{
+    height: 250px;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 16px;
+    
+}
+
+.file_input {
+    display: none;
+}
+
+.custom-file-upload {
+    border: none;
+    cursor: pointer;
+    width: 80px;
+    display: flex;
+    padding: 0.75rem 1.5rem;
+    background-color: #efefef;
+    color: #151515;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    user-select: none;
+    gap: 0.75rem;
+    transition: all .6s ease;
+}
+
+.exterior_form_cont, .interior_form_cont{
+    display: flex;
+    gap: 50px;
+}
+
+.condition_submit_button{
+    margin-top: 50px;
+}
+
+.condition_report_link{
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 16px;
+}
+
+.checkmark{
+    background-color: rgb(79, 203, 79);
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 100%;
+}
+.exterior_preview_images, .interior_preview_images{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.exterior_preview_images img, .interior_preview_images img{
+    max-width: 128px;
+    object-fit: cover;
+}
+
+
+@media only screen and (max-width: 830px) {
+    .user_profile_container{
+        width: 200px;
+    }
+
+    .user_profile_picture{
+        width: 125px;
+    }
+    .profile_full_name{
+        font-size: 25px;
+    }
+    .active_contract_message{
+        font-size: 26px;    
+    }
+}
+
+
+@media only screen and (max-width: 800px) {
+    .contract_fines_title{
+        font-size: 25px;
+        width: 70%;
+        
+    }
+    .fines_total_and_amount{
+        width: 60%;
+    }
+    .fines_total_and_amount p{
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .whitespace{
+        width: calc(100% - 40px);
+    }
+
+    #finesTable_wrapper{
+        width: 90%;
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 431px) {
+    .all_contracts_container{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .contract_container{
+        width: calc(100% - 50px);
+    }
+
+    .user_profile_container{
+        width: 200px;
+    }
+
+    .user_profile_picture{
+        width: 125px;
+    }
+    .profile_full_name{
+        font-size: 25px;
+    }
+    .active_contract_message{
+        font-size: 20px;
+    }
+
+    .active_contract_message{
+        font-size: 23px;
+    }
+
+    .status_text{
+        font-size: 22px;
+    }
+
+    .section_button{
+        padding: 15px;
+        border-radius: 12px;
+    }
+    .section_button_text{
+        font-size: 20px;
+    }
+    .section_button_chevron{
+        font-size: 20px;
+    }
+    .fines-button{
+        width: calc(100% - 30px);
+    }
+    .fineslinkicon{
+        font-size: 20px;
+    }
+    .view_contract_text{
+        font-size: 17px;
+    }
+    .section_content_cont{
+        padding: 12px;
+    }
+    .car_stock_picture{
+        max-width: 200px;
+    }
+    .car_info_text{
+        font-size: 17px;
+    }
+    .condition_report_title{
+        font-size: 18px;
+    }
+    .interior_and_exterior_text{
+        font-size: 17px;
+    }
+    .interior_and_exterior_content{
+        font-size: 16px;
+    }
+    .tips_text{
+        font-size: 16px;
+    }
+    .contract_fines_title{
+        font-size: 16px;
+        width: 90%;
+    }
+
+    .fines_total_and_amount{
+        width: 90%;
+    }
+
+    #finesTable_wrapper{
+        width: 95%;
+        font-size: 10px;
+        padding: 2px;
+    }
+
+    .fine_document_view{
+        background-color: #efefef;
+        padding: 4px;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .fine_document_button{
+        height: 30px;
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .deposit_status_text{
+        font-size: 16px;
+    }
+    .deposit_release_date{
+        font-size: 16px;
+    }
+    .deposit_release_note{
+        font-size: 14px;
+    }
+    .user_not_found_body{
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 377px) {
+    #finesTable_wrapper{
+        width: 95%;
+        font-size: 7px;
+        width: 100%;
+    }
+}
+ 
+@media only screen and (max-width: 331px) {
+    .section_button_text{
+        font-size: 16px;
+    }
+    .section_button_chevron{
+        font-size: 16px;
+    }
+    .fineslinkicon{
+        font-size: 16px;
+    }
+    .all_contracts_container{
+        padding: 0;
+    }
+    .contract_container{
+        padding-left: 15px;
+        padding-right: 15px;
+        width: calc(100% - 30px);
+    }
+    .status_text{
+        font-size: 18px;
+    }
+    .active_contract_message{
+        font-size: 19px;
+    }
+    .view_contract_text{
+        font-size: 16px;
+    }
+
+}

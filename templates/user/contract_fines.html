@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Detail</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    
+
+
+  </head>
+<body  class="user_detail_body">
+    <h1 class="contract_fines_title">Fines for {{contract.user}}'s Booking of {{contract.car}} at {{contract.pickup_date}}</h1>
+    {% if fines %}
+    <div class="fines_total_and_amount">
+        <p>Total Fines: {{ total_fines }}</p>
+        <div class="seperator_line"></div>
+        <p>Total Amount: {{ total_amount }} AED</p>
+    </div>
+
+    <table id="finesTable" class="display stripe">
+      <thead>
+        <tr>
+          <th>Fine Number</th>
+          <th>Fine Type</th>
+          <th>Fine Date</th>
+          <th>Amount</th>
+          <th>Fine Document</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for fine in fines %}
+          <tr>
+            <td>{{ fine.fine_number }}</td>
+            <td>{{ fine.fine_type }}</td>
+            <td>{{ fine.fine_date }}</td>
+            <td>{{ fine.amount }}</td>
+            <td>
+              {% if fine.fine_picture %}
+                <a class="fine_document_view" href="{{ fine.fine_picture.url }}" target="_blank" class="btn btn-primary"><button class="fine_document_button"> View </button> </a>
+              {% else %}
+                No Document Available
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No fines found for this contract.</p>
+  {% endif %}
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#finesTable').DataTable();
+    });
+  </script>
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
